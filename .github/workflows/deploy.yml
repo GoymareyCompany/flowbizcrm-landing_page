@@ -1,0 +1,45 @@
+name: Deploy Flowbizcrm Landing Page to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Set Up Environment Variables for Vite
+        run: |
+          echo "VITE_BASE_URL=${{ secrets.VITE_BASE_URL }}" >> .env
+          echo "VITE_JWT_SECRET_KEY=${{ secrets.VITE_JWT_SECRET_KEY }}" >> .env
+          echo "VITE_SOCKET_URL=${{ secrets.VITE_SOCKET_URL }}" >> .env
+          echo "VITE_APP_GEMINI_API_KEY=${{ secrets.VITE_APP_GEMINI_API_KEY }}" >> .env
+
+      - name: Install Dependencies & Build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Set Up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 185.113.249.82 >> ~/.ssh/known_hosts
+
+      - name: Deploy `dist/` to VPS
+        run: |
+          rsync -avz --delete -e "ssh -i ~/.ssh/id_rsa" dist/ root@185.113.249.82:/var/www/flowbizcrm-landing_page/
+
+      - name: Restart Nginx
+        run: |
+          ssh -i ~/.ssh/id_rsa root@185.113.249.82 "systemctl restart nginx"
