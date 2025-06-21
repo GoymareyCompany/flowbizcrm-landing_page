@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.pricing-card {
+  @apply bg-primary relative text-primary-content;
+}
+.pricing-card::before {
+  @apply md:content-[''] absolute -top-12 left-0 h-16  bg-primary right-0  rounded-t-lg;
+}
+.pricing-card::after {
+  @apply md:content-[''] absolute -bottom-12 left-0 h-16  bg-primary right-0  rounded-b-lg;
+}
+
