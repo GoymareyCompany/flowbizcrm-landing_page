@@ -36,9 +36,9 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H 185.113.249.82 >> ~/.ssh/known_hosts
 
-      - name: Deploy `dist/` to VPS
+      - name: Deploy `.next/` to VPS
         run: |
-          rsync -avz --delete -e "ssh -i ~/.ssh/id_rsa" dist/ root@185.113.249.82:/var/www/flowbizcrm-landing_page/
+          rsync -avz --delete -e "ssh -i ~/.ssh/id_rsa" .next/ root@185.113.249.82:/var/www/flowbizcrm-landing_page/
 
       - name: Restart Nginx
         run: |
