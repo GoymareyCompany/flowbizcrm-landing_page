@@ -2,13 +2,13 @@ export const siteConfig = {
   name: "FlowBizCRM",
   description: "The ultimate CRM solution for managing leads, deals, and customer relationships.",
   url: "https://info.flowbiz.com",
-  flowbizUrl: "https://flowbiz.com",
+  flowbizUrl: "https://app.flowbizcrm.com",
   social: {
-    twitter: "https://twitter.com/flowbiz",
-    facebook: "https://facebook.com/flowbiz",
-    instagram: "https://instagram.com/flowbiz",
-    tiktok: "https://tiktok.com/@flowbiz",
-    linkedin: "https://linkedin.com/company/flowbiz",
+    twitter: "https://x.com/Goymarey",
+    facebook: "https://www.facebook.com/profile.php?id=61569351266453",
+    instagram: "https://www.instagram.com/goymarey",
+    tiktok: "https://www.tiktok.com/@goymarey?_t=8rY9pWc1DlA&_r=1",
+    linkedin: "https://www.linkedin.com/company/goymarey",
   },
 } as const
 

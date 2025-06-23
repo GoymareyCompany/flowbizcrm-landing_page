@@ -16,6 +16,7 @@ export function SiteLayoutWithDrawer({ children }: SiteLayoutWithDrawerProps) {
           width={1200}
           src={"/landing/landing-spiral.png"}
           className="object-cover w-full"
+          alt="Landing spiral background"
         />
       <div className="relative md:hidden">
         <img
@@ -23,6 +24,7 @@ export function SiteLayoutWithDrawer({ children }: SiteLayoutWithDrawerProps) {
           width={200}
           src={"/landing/circles.png"}
           className="object-cover h-44 w-auto  ml-1 absolute top-0 -left-28 -z-10"
+          alt="Landing circles background"
         />
       </div>
       </div>
@@ -53,14 +55,13 @@ export function SiteLayoutWithDrawer({ children }: SiteLayoutWithDrawerProps) {
                   <div className="navbar-end">
                     <div className="flex gap-5">
                       <a
-                        href={siteConfig.flowbizUrl + "/login"}
+                        href={siteConfig.flowbizUrl + "/signin"}
                         className="btn bg-ghost bg-base-content/50 text-base-100">
                         Login
                       </a>
-                      {/* <a href={siteConfig.flowbizUrl + "/signup"} className="btn btn-primary px-6">
+                      <a href={siteConfig.flowbizUrl + "/signup"} className="btn btn-primary px-6">
                         Try Flowbiz Free <FaArrowRight className="mx-2" />
-                      </a> */}
-                      <BookADemoButton/>
+                      </a>
                     </div>
                   </div>
                 </div>

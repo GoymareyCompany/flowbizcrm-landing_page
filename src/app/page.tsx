@@ -1,3 +1,6 @@
+'use client'
+
+import { ToastContainer } from 'react-toastify';
 import { HeroSection } from "@/components/landing-page/HeroSection";
 import { TrustedBy } from "@/components/landing-page/TrustedBy";
 import { Features } from "@/components/landing-page/Features";
@@ -9,6 +12,7 @@ import { Footer } from "@/components/landing-page/Footer";
 import { BookADemo } from "@/components/layout/BookADemo";
 
 export default function Home() {
+
   return (
     <main className="flex min-h-screen flex-col w-full">
       <HeroSection />
@@ -20,6 +24,18 @@ export default function Home() {
       <CallToAction />
       <Footer />
       <BookADemo/>
+      <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
     </main>
   );
 }

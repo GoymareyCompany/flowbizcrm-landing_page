@@ -71,10 +71,18 @@ export function Testimonials() {
         </div>
       </div>
       <div className="hidden md:mt-20 md:flex justify-center gap-10">
-        <button className="btn btn=-ghost bg-[#E6F1FE] btn-circle p-2 size-[75px]">
+        <button
+          className="btn btn=-ghost bg-[#E6F1FE] btn-circle p-2 size-[75px]"
+          title="Previous testimonial"
+          aria-label="Previous testimonial"
+        >
           <GrPrevious className="text-2xl text-[#4F9CF9] cursor-pointer size-10" />
         </button>
-        <button className="btn btn=-ghost bg-[#E6F1FE] btn-circle p-2 size-[75px] ">
+        <button
+          className="btn btn=-ghost bg-[#E6F1FE] btn-circle p-2 size-[75px] "
+          title="Next testimonial"
+          aria-label="Next testimonial"
+        >
           <GrNext className="text-2xl text-[#4F9CF9] cursor-pointer size-10" />
         </button>
       </div>
